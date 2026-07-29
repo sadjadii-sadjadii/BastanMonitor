@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="ajax" method="upgrade">
+    <name>Ajax - Bastan Monitor Agent</name>
+    <author>Bastan Graphic</author>
+    <creationDate>July 2026</creationDate>
+    <version>1.2.0</version>
+    <description>پلاگین ارتباطی امن برای اتصال سایت به داشبورد مرکزی مانیتورینگ باستان</description>
+    <files>
+        <filename plugin="bastanagent">bastanagent.php</filename>
+    </files>
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="agent_token" type="password" label="توکن امنیتی (Secret Token)" 
+                       description="توکن امنیتی تولید شده در داشبورد مرکزی را اینجا وارد کنید." 
+                       required="true" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
