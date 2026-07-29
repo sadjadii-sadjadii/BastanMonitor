@@ -1,0 +1,5 @@
+/* استایل‌های اختصاصی صفحه آرشیو هشدارها */
+.bastan-archived-wrap table.table th, 
+.bastan-archived-wrap table.table td {
+    vertical-align: middle;
+}
