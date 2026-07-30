@@ -1,0 +1,44 @@
+/**
+ * @package     BastanMonitor
+ * @copyright   Copyright (C) 2026. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+/* استایل‌های انحصاری بستان مانیتور برای صفحه در یک نگاه */
+.bastan-monitor-wrap .bm-card {
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+.bastan-monitor-wrap .bm-card:hover {
+    transform: translateY(-3px);
+}
+.bastan-monitor-wrap .bm-badge-score {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+}
+.bastan-monitor-wrap .bm-icon-box {
+    width: 60px;
+    height: 60px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.bastan-monitor-wrap .bm-box-item {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+span.badge.bg-info.text-dark {
+    color: white !important;
+}
+span.position-absolute.top-0.start-0.translate-middle-y.badge.rounded-pill.bg-success.text-white.m-3.shadow-sm.bm-badge-score {
+    padding: 5px !important;
+    border-radius: 5px !important;
+    color: #fff0d5 !important;
+    margin-left: 4px !important;
+}
+.modal-body.text-start {
+    padding: 14px;
+}

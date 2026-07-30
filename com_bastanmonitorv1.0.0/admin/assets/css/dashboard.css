@@ -1,0 +1,23 @@
+/**
+ * @package     BastanMonitor
+ * @copyright   Copyright (C) 2026. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+/* استایل اختصاصی داشبورد بستان مانیتور */
+.bastan-dashboard .bastan-stat-card {
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.bastan-dashboard .bastan-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.bastan-dashboard .bastan-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.bastan-dashboard .bastan-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+}

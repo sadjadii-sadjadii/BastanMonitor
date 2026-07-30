@@ -1,0 +1,11 @@
+/**
+ * @package     BastanMonitor
+ * @copyright   Copyright (C) 2026. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+/* استایل‌های اختصاصی صفحه مدیریت سایت‌ها */
+.bastan-sites-wrap table.table th, 
+.bastan-sites-wrap table.table td {
+    vertical-align: middle;
+}
