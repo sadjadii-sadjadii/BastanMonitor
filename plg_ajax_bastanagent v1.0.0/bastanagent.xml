@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @package     BastanAgent
+ * @copyright   Copyright (C) 2026 BastanGraphic.com. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+-->
 <extension type="plugin" group="ajax" method="upgrade">
     <name>Ajax - Bastan Monitor Agent</name>
     <author>Bastan Graphic</author>
     <creationDate>July 2026</creationDate>
-    <version>1.2.0</version>
+    <version>1.0.0</version>
     <description>پلاگین ارتباطی امن برای اتصال سایت به داشبورد مرکزی مانیتورینگ باستان</description>
     <files>
         <filename plugin="bastanagent">bastanagent.php</filename>
