@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+    <update>
+        <name>Ajax - Bastan Monitor Agent</name>
+        <description>Secure communication plugin to connect the site to the Bastan Monitoring central dashboard.</description>
+        <element>plg_ajax_bastanagent</element>
+        <type>plugin</type>
+        <folder>ajax</folder>
+        <version>2.0.0</version>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/sadjadii-sadjadii/BastanMonitor/releases/download/bastanmonitorv1.1.0/plg_ajax_bastanagent.v2.0.0.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>Bastan Graphic</maintainer>
+        <maintainerurl>https://bastangraphic.com</maintainerurl>
+    </update>
+</updates>
