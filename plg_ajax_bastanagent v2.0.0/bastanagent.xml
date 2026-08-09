@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @package     BastanAgent
+ * @copyright   Copyright (C) 2026 BastanGraphic.com. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+-->
+<extension type="plugin" group="ajax" method="upgrade">
+    <name>Ajax - Bastan Monitor Agent</name>
+    <author>Bastan Graphic</author>
+    <authorEmail>sadjadii@gmail.com.com</authorEmail>
+    <authorUrl>https://bastangraphic.com</authorUrl>
+    <copyright>Copyright (C) 2026 BastanGraphic.com</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <creationDate>July 2026</creationDate>
+    <version>2.0.0</version>
+    <description>Secure communication plugin to connect the site to the Bastan Monitoring central dashboard.</description>
+    
+    <files>
+        <filename plugin="bastanagent">bastanagent.php</filename>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="agent_token" type="password" label="Secret Token" 
+                       description="Enter the secure token generated in your central monitoring dashboard here." 
+                       required="true" />
+            </fieldset>
+        </fields>
+    </config>
+
+    <updateservers>
+        <server type="extension" priority="1" name="Bastan Agent Update Server">https://raw.githubusercontent.com/sadjadii-sadjadii/BastanMonitor/main/agent-update.xml</server>
+    </updateservers>
+</extension>
