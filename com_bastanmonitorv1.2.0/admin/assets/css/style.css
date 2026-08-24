@@ -1,0 +1,163 @@
+/**
+ * @package     BastanMonitor
+ * @copyright   Copyright (C) 2026 BastanGraphic. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
+/* ==========================================================================
+   1. Alerts and Events Management (alerts.css & archivedalerts.css)
+   ========================================================================== */
+.bastan-alerts-wrap .alert-icon-box {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.bastan-alerts-wrap table.table th, 
+.bastan-alerts-wrap table.table td,
+.bastan-archived-wrap table.table th, 
+.bastan-archived-wrap table.table td {
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   2. Assets and Services Management (asset.css & assets.css)
+   ========================================================================== */
+/* Custom styles for Add/Edit Asset Form */
+.bastan-asset-form-wrap .card {
+    border-radius: 8px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Custom styles for Assets List Table */
+.bastan-assets-list-wrap table.table th, 
+.bastan-assets-list-wrap table.table td {
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   3. Bastan Monitor Dashboard (dashboard.css)
+   ========================================================================== */
+.bastan-dashboard .bastan-stat-card {
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bastan-dashboard .bastan-stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+}
+
+.bastan-dashboard .bastan-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.bastan-dashboard .bastan-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   4. At a Glance Page (glance.css)
+   ========================================================================== */
+.bastan-monitor-wrap .bm-card {
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+.bm-badge-score {
+    margin: 20px 5px !important;
+    border-radius: 5px !important;
+    padding: 10px 10px !important;
+}
+.bastan-monitor-wrap .bm-card:hover {
+    transform: translateY(-3px);
+}
+
+.bastan-monitor-wrap .bm-badge-score {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+}
+
+.bastan-monitor-wrap .bm-icon-box {
+    width: 60px;
+    height: 60px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bastan-monitor-wrap .bm-box-item {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+span.badge.bg-info.text-dark {
+    color: white !important;
+    background-color: #005dff !important;
+}
+
+.p-2.rounded.bm-box-item.bg-success.text-white{
+    background-color: #046b20 !important;
+}
+
+span.position-absolute.top-0.start-0.translate-middle-y.badge.rounded-pill.bg-success.text-white.m-3.shadow-sm.bm-badge-score {
+    padding: 5px !important;
+    border-radius: 5px !important;
+    color: #fff0d5 !important;
+    margin-left: 4px !important;
+    background-color: #046b20 !important;
+}
+
+.modal-body.text-start {
+    padding: 20px !important;
+}
+
+/* ==========================================================================
+   5. Sites Management (site.css & sites.css)
+   ========================================================================== */
+/* Custom styles for Add/Edit Site Form */
+.bastan-site-form .card {
+    border-radius: 8px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Custom styles for Sites List Table */
+.bastan-sites-wrap table.table th, 
+.bastan-sites-wrap table.table td {
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   6. Custom Filters & Pagination Bar (bastan-filter-bar)
+   ========================================================================== */
+.bastan-filter-bar {
+    margin-bottom: 14px !important;
+}
+
+.bastan-filter-bar .bastan-search-group {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.bastan-filter-bar .bastan-search-input {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.bastan-filter-bar .bastan-search-btn {
+    border-radius: 0;
+}
+
+.bastan-filter-bar .bastan-clear-btn {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.bastan-filter-bar .bastan-limit-box select {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+}
