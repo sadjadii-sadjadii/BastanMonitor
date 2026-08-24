@@ -15,9 +15,12 @@ use Joomla\CMS\Language\Text;
 class BastanmonitorViewAlerts extends HtmlView {
     public $items;
     public $pagination;
+    public $state;
 
     public function display($tpl = null) {
-        $this->items = $this->get('Items');
+        $this->items      = $this->get('Items');
+        $this->pagination = $this->get('Pagination');
+        $this->state      = $this->get('State');
         
         // Load separate style file
         HTMLHelper::_('stylesheet', 'com_bastanmonitor/style.css', array('version' => 'auto', 'relative' => true));

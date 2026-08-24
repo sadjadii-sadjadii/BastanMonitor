@@ -65,7 +65,11 @@
     border-radius: 12px;
     transition: transform 0.2s ease;
 }
-
+.bm-badge-score {
+    margin: 20px 5px !important;
+    border-radius: 5px !important;
+    padding: 10px 10px !important;
+}
 .bastan-monitor-wrap .bm-card:hover {
     transform: translateY(-3px);
 }
@@ -92,6 +96,11 @@
 
 span.badge.bg-info.text-dark {
     color: white !important;
+    background-color: #005dff !important;
+}
+
+.p-2.rounded.bm-box-item.bg-success.text-white{
+    background-color: #046b20 !important;
 }
 
 span.position-absolute.top-0.start-0.translate-middle-y.badge.rounded-pill.bg-success.text-white.m-3.shadow-sm.bm-badge-score {
@@ -99,10 +108,11 @@ span.position-absolute.top-0.start-0.translate-middle-y.badge.rounded-pill.bg-su
     border-radius: 5px !important;
     color: #fff0d5 !important;
     margin-left: 4px !important;
+    background-color: #046b20 !important;
 }
 
 .modal-body.text-start {
-    padding: 14px;
+    padding: 20px !important;
 }
 
 /* ==========================================================================
@@ -117,5 +127,37 @@ span.position-absolute.top-0.start-0.translate-middle-y.badge.rounded-pill.bg-su
 /* Custom styles for Sites List Table */
 .bastan-sites-wrap table.table th, 
 .bastan-sites-wrap table.table td {
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+   6. Custom Filters & Pagination Bar (bastan-filter-bar)
+   ========================================================================== */
+.bastan-filter-bar {
+    margin-bottom: 14px !important;
+}
+
+.bastan-filter-bar .bastan-search-group {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.bastan-filter-bar .bastan-search-input {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.bastan-filter-bar .bastan-search-btn {
+    border-radius: 0;
+}
+
+.bastan-filter-bar .bastan-clear-btn {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.bastan-filter-bar .bastan-limit-box select {
+    display: inline-block;
+    width: auto;
     vertical-align: middle;
 }

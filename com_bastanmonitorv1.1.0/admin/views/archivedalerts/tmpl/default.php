@@ -10,12 +10,37 @@ defined('_JEXEC') or die;
 use Joomla\CMS\HTML\HTMLHelper;
 use Joomla\CMS\Language\Text;
 
-$listOrder = $this->escape($this->state->get('list.ordering'));
-$listDirn  = $this->escape($this->state->get('list.direction'));
+// Load base script for grid sorting
+HTMLHelper::_('behavior.core');
+
+$saveSearch = $this->state ? $this->escape($this->state->get('filter.search')) : '';
+$listOrder  = $this->escape($this->state->get('list.ordering'));
+$listDirn   = $this->escape($this->state->get('list.direction'));
 ?>
 <div class="container-fluid pt-3 bastan-archived-wrap">
     <form action="index.php?option=com_bastanmonitor&view=archivedalerts" method="post" name="adminForm" id="adminForm">
-        <div class="card">
+        
+        <!-- Search bar and limit box -->
+        <div class="row mb-3 align-items-center">
+            <div class="col-md-6 col-12 mb-2 mb-md-0">
+                <div class="input-group">
+                    <input type="text" name="filter[search]" id="filter_search" class="form-control" placeholder="<?php echo Text::_('JSEARCH_FILTER'); ?>" value="<?php echo $saveSearch; ?>">
+                    <button type="submit" class="btn btn-primary" title="<?php echo Text::_('JSEARCH_FILTER_SUBMIT'); ?>">
+                        <span class="icon-search" aria-hidden="true"></span> <?php echo Text::_('JSEARCH_FILTER_SUBMIT'); ?>
+                    </button>
+                    <button type="button" class="btn btn-secondary" title="<?php echo Text::_('JSEARCH_FILTER_CLEAR'); ?>" onclick="document.getElementById('filter_search').value='';this.form.submit();">
+                        <span class="icon-times" aria-hidden="true"></span> <?php echo Text::_('JSEARCH_FILTER_CLEAR'); ?>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 text-md-end">
+                <div class="d-inline-block">
+                    <?php echo $this->pagination->getLimitBox(); ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="card shadow-sm border-0">
             <div class="card-body">
                 <h4 class="card-title mb-4"><?php echo Text::_('COM_BASTANMONITOR_ARCHIVED_ALERTS_HEADING'); ?></h4>
                 <table class="table table-striped table-hover align-middle">
@@ -61,6 +86,13 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                             </tr>
                         <?php endif; ?>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="5">
+                                <?php echo $this->pagination->getListFooter(); ?>
+                            </td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

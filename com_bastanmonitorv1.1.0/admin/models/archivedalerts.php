@@ -24,6 +24,21 @@ class BastanmonitorModelArchivedalerts extends ListModel {
         parent::__construct($config);
     }
 
+    protected function populateState($ordering = 'a.created_at', $direction = 'DESC') {
+        // Get search status
+        $search = $this->getUserStateFromRequest($this->context . '.filter.search', 'filter_search');
+        $this->setState('filter.search', $search);
+        
+        // Sorting status
+        $listOrder = $this->getUserStateFromRequest($this->context . '.filter_order', 'filter_order', $ordering);
+        $listDirn  = $this->getUserStateFromRequest($this->context . '.filter_order_Dir', 'filter_order_Dir', $direction);
+
+        $this->setState('list.ordering', $listOrder);
+        $this->setState('list.direction', $listDirn);
+
+        parent::populateState($listOrder, $listDirn);
+    }
+
     protected function getListQuery() {
         $db = Factory::getDbo();
         $query = $db->getQuery(true);
@@ -37,11 +52,16 @@ class BastanmonitorModelArchivedalerts extends ListModel {
         ->leftJoin($db->quoteName('#__bastanmonitor_sites', 's') . ' ON ' . $db->quoteName('a.site_id') . ' = ' . $db->quoteName('s.id'))
         ->where($db->quoteName('a.is_archived') . ' = 1');
 
-        // Dynamically apply sorting based on user selection
+        // Apply search filter
+        $search = $this->getState('filter.search');
+        if (!empty($search)) {
+            $search = $db->quote('%' . $db->escape(trim($search), true) . '%');
+            $query->where('(' . $db->quoteName('a.message') . ' LIKE ' . $search . ' OR ' . $db->quoteName('s.title') . ' LIKE ' . $search . ')');
+        }
+
         $orderCol = $this->state->get('list.ordering', 'a.created_at');
         $orderDirn = $this->state->get('list.direction', 'DESC');
         
-        // Prevent SQL Injection using standard escaping
         $query->order($db->escape($orderCol . ' ' . $orderDirn));
 
         return $query;

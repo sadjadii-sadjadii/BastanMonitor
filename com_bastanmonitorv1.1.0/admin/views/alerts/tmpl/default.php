@@ -9,10 +9,34 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\HTML\HTMLHelper;
+
+// Get the search keyword
+$saveSearch = $this->state ? $this->escape($this->state->get('filter.search')) : '';
 ?>
 
 <div class="container-fluid pt-3 bastan-alerts-wrap">
     <form action="index.php?option=com_bastanmonitor&view=alerts" method="post" name="adminForm" id="adminForm">
+        
+        <!-- Filter and search bar -->
+        <div class="row mb-3 align-items-center">
+            <div class="col-md-6 col-12 mb-2 mb-md-0">
+                <div class="input-group">
+                    <input type="text" name="filter[search]" id="filter_search" class="form-control" placeholder="<?php echo Text::_('JSEARCH_FILTER'); ?>" value="<?php echo $saveSearch; ?>">
+                    <button type="submit" class="btn btn-primary" title="<?php echo Text::_('JSEARCH_FILTER_SUBMIT'); ?>">
+                        <span class="icon-search" aria-hidden="true"></span> <?php echo Text::_('JSEARCH_FILTER_SUBMIT'); ?>
+                    </button>
+                    <button type="button" class="btn btn-secondary" title="<?php echo Text::_('JSEARCH_FILTER_CLEAR'); ?>" onclick="document.getElementById('filter_search').value='';this.form.submit();">
+                        <span class="icon-times" aria-hidden="true"></span> <?php echo Text::_('JSEARCH_FILTER_CLEAR'); ?>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 col-12 text-md-end">
+                <div class="d-inline-block">
+                    <?php echo $this->pagination->getLimitBox(); ?>
+                </div>
+            </div>
+        </div>
+
         <table class="table table-striped table-hover align-middle">
             <thead>
                 <tr>
@@ -68,6 +92,13 @@ use Joomla\CMS\HTML\HTMLHelper;
                     </tr>
                 <?php endif; ?>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        <?php echo $this->pagination->getListFooter(); ?>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
         
         <input type="hidden" name="task" value="">

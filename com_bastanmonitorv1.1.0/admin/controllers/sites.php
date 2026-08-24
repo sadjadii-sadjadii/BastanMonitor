@@ -106,14 +106,39 @@ class BastanmonitorControllerSites extends AdminController {
             return false;
         }
 
-        $baseUrl = rtrim($site->url, '/');
+        $baseUrl = rtrim(trim($site->url), '/');
         $agentToken = trim($site->agent_token);
-        $agentUrl = $baseUrl . '/index.php?option=com_ajax&plugin=bastanagent&format=json&token=' . urlencode($agentToken);
+        
+        // Smart URL Handler (پشتیبانی همزمان از جوملا و وردپرس)
+        if (strpos($baseUrl, 'wp-json') !== false) {
+            // WordPress REST API format
+            $separator = (strpos($baseUrl, '?') !== false) ? '&' : '?';
+            $agentUrl = $baseUrl . $separator . 'token=' . urlencode($agentToken);
+        } elseif (strpos($baseUrl, 'index.php') !== false) {
+            // Full custom Joomla URL provided manually
+            $separator = (strpos($baseUrl, '?') !== false) ? '&' : '?';
+            $agentUrl = $baseUrl . $separator . 'token=' . urlencode($agentToken);
+        } else {
+            // Standard Joomla base URL
+            $agentUrl = $baseUrl . '/index.php?option=com_ajax&plugin=bastanagent&format=json&token=' . urlencode($agentToken);
+        }
 
+        // Initialize cURL with advanced settings to bypass firewalls and CDNs
         $ch = curl_init($agentUrl);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 15);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        
+        // --- Anti-Block / CDN Bypass Settings ---
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 3);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Accept: application/json',
+            'Cache-Control: no-cache'
+        ));
+        // ----------------------------------------
+
         $json = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $curlError = curl_error($ch);

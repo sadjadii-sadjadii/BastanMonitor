@@ -17,8 +17,10 @@ class BastanmonitorViewAssets extends HtmlView {
     protected $pagination;
 
     public function display($tpl = null) {
-        $this->items = $this->get('Items');
+        $this->items      = $this->get('Items');
         $this->pagination = $this->get('Pagination');
+        $this->state      = $this->get('State');
+
 
         // Load the custom style file
         HTMLHelper::_('stylesheet', 'com_bastanmonitor/style.css', array('version' => 'auto', 'relative' => true));

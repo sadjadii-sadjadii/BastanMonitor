@@ -1,8 +1,8 @@
 <?php
 /**
- * @package    BastanMonitor
- * @copyright  Copyright (C) 2026 BastanGraphic. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     BastanMonitor
+ * @copyright   Copyright (C) 2026 BastanGraphic. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -18,7 +18,11 @@ HTMLHelper::_('bootstrap.modal');
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4 g-4">
         <?php if (!empty($this->items)) : ?>
             <?php foreach ($this->items as $site) : ?>
-                <?php 
+                 <?php 
+                    if (empty($site->url)) {
+                        continue;
+                    }
+                    $data = $site->sync_data;
                     $data = $site->sync_data;
                     
                     // Health score

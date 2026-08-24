@@ -1,8 +1,8 @@
 <?php
 /**
- * @package    BastanMonitor
- * @copyright  Copyright (C) 2026 BastanGraphic. All rights reserved.
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ * @package     BastanMonitor
+ * @copyright   Copyright (C) 2026 BastanGraphic. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('_JEXEC') or die;
@@ -10,8 +10,13 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\HTML\HTMLHelper;
 
-// Retrieve the search term from Joomla state (if available)
+// Load core Joomla JavaScript files to enable sorting clicks
+HTMLHelper::_('behavior.core'); 
+
+// Retrieve the search term and sort states from Joomla state
 $saveSearch = $this->state ? $this->escape($this->state->get('filter.search')) : '';
+$listOrder  = $this->state ? $this->escape($this->state->get('list.ordering', 'a.id')) : 'a.id';
+$listDirn   = $this->state ? $this->escape($this->state->get('list.direction', 'DESC')) : 'DESC';
 ?>
 <div class="container-fluid pt-3 bastan-sites-wrap">
     <form action="index.php?option=com_bastanmonitor&view=sites" method="post" name="adminForm" id="adminForm">
@@ -42,9 +47,11 @@ $saveSearch = $this->state ? $this->escape($this->state->get('filter.search')) :
                     <th width="1%" class="text-center">
                         <?php echo HTMLHelper::_('grid.checkall'); ?>
                     </th>
-                    <th><?php echo Text::_('COM_BASTANMONITOR_FIELD_SITE_TITLE'); ?></th>
-                    <th><?php echo Text::_('COM_BASTANMONITOR_FIELD_DOMAIN'); ?></th>
-                    <th width="15%" class="text-center"><?php echo Text::_('COM_BASTANMONITOR_FIELD_HEALTH_SCORE'); ?></th>
+                    <!-- Use grid.sort instead of searchtools.sort -->
+                    <th><?php echo HTMLHelper::_('grid.sort', 'COM_BASTANMONITOR_FIELD_SITE_TITLE', 'a.title', $listDirn, $listOrder); ?></th>
+                    <th><?php echo HTMLHelper::_('grid.sort', 'COM_BASTANMONITOR_FIELD_DOMAIN', 'a.domain', $listDirn, $listOrder); ?></th>
+                    <th width="15%" class="text-center"><?php echo HTMLHelper::_('grid.sort', 'COM_BASTANMONITOR_FIELD_HEALTH_SCORE', 'a.health_score', $listDirn, $listOrder); ?></th>
+                    
                     <th><?php echo Text::_('COM_BASTANMONITOR_FIELD_AGENT_URL'); ?></th>
                     <th width="8%" class="text-center"><?php echo Text::_('COM_BASTANMONITOR_FIELD_STATUS'); ?></th>
                 </tr>
@@ -118,6 +125,9 @@ $saveSearch = $this->state ? $this->escape($this->state->get('filter.search')) :
         
         <input type="hidden" name="task" value="">
         <input type="hidden" name="boxchecked" value="0">
+        <!-- Hidden fields for sorting state -->
+        <input type="hidden" name="filter_order" value="<?php echo $listOrder; ?>">
+        <input type="hidden" name="filter_order_Dir" value="<?php echo $listDirn; ?>">
         <?php echo HTMLHelper::_('form.token'); ?>
     </form>
 </div>
