@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @package     BastanAutoSync
+ * @copyright   Copyright (C) 2026 BastanGraphic.com. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+-->
+<updates>
+    <update>
+        <name>plg_system_bastanautosync</name>
+		<description>Automatic background sync plugin for BastanMonitor component.</description>
+        <element>plg_system_bastanautosync</element>
+        <type>plugin</type>
+        <version>1.0.1</version>
+        <downloads>
+            <downloadurl type="full" format="zip">https://github.com/sadjadii-sadjadii/BastanMonitor/releases/download/bastanmonitorv1.3.0/plg_ajax_bastanagent.v2.0.0.zip</downloadurl>
+        </downloads>
+        <tags>
+            <tag>stable</tag>
+        </tags>
+        <maintainer>Bastan Graphic</maintainer>
+        <maintainerurl>https://bastangraphic.com</maintainerurl>
+    </update>
+</updates>
