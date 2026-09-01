@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * @package     BastanAutoSync
+ * @copyright   Copyright (C) 2026 BastanGraphic.com. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+-->
+<extension type="plugin" group="system" method="upgrade">
+    <name>plg_system_bastanautosync</name>
+    <author>BastanGraphic</author>
+    <creationDate>2026</creationDate>
+    <copyright>Copyright (C) 2026 BastanGraphic. All rights reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <version>1.0.1</version>
+    <description>Automatic background sync plugin for BastanMonitor component.</description>
+    <files>
+        <filename plugin="bastanautosync">bastanautosync.php</filename>
+    </files>
+	
+	    <updateservers>
+        <server type="extension" priority="1" name="Bastan Agent Update Server">https://raw.githubusercontent.com/sadjadii-sadjadii/BastanMonitor/main/sync-update.xml</server>
+    </updateservers>
+</extension>
