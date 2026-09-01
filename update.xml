@@ -10,7 +10,7 @@
         <description>Bastan Monitor Component</description>
         <element>com_bastanmonitor</element>
         <type>component</type>
-        <version>1.2.0</version>
+        <version>1.3.0</version>
         <downloads>
             <downloadurl type="full" format="zip">https://github.com/sadjadii-sadjadii/BastanMonitor/releases/download/joomla_component/com_bastanmonitorv1.1.0.zip</downloadurl>
         </downloads>
